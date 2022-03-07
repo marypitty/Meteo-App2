@@ -1,0 +1,44 @@
+<div class="container">
+    <header>
+        <h1 class="title">{{ title }}</h1>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Enter city here..." name="input" [(ngModel)]="input" />
+            </mat-form-field>
+            <button type="button" mat-fab (click)="getInfo()">Search</button>
+        </form>
+    </header>
+    <img id="loading_bar" *ngIf="loading" src="https://www.drogbaster.it/loading/loading14.gif" alt="">
+
+
+    <div class="section">
+        <main *ngFor="let item of forecastContainer; let i = index">
+            <div class="WeatherCard">
+                <mat-card class="example-card">
+                    <div class="weatherWidgetRow">
+                        <div class="cityName">{{ item[0].city }}</div>
+                        <mat-chip-list class="mat-chip-list-stacked" aria-orientation="vertical">
+                            <mat-chip><i (click)="deleteItem(i)" class="fa fa-2x fa-trash" aria-hidden="true"></i
+            ></mat-chip>
+          </mat-chip-list>
+        </div>
+
+        <div class="weatherContent">
+          <div class="weatherDetails">
+            <div id="now">Now</div>
+            <div id="last_update">Last update: {{ currentTime }}</div>
+            <div id="weather_name">{{ item[0].weather }}</div>
+          </div>
+          <img alt="" id="main_icon" src="{{ item[0].icon }}" />
+        </div>
+
+        <div *ngFor="let i of item" class="forecast">
+          <p id="day">{{ i.day }}</p>
+          <img alt="" id="small_icon" src="{{ i.icon }}" />
+          <p id="temp">{{ i.Tmin }}° / {{ i.Tmax }}°</p>
+        </div>
+      </mat-card>
+    </div>
+  </main>
+</div>
+</div>
