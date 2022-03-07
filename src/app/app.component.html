@@ -8,7 +8,10 @@
             <button type="button" mat-fab (click)="getInfo()">Search</button>
         </form>
     </header>
-    <img id="loading_bar" *ngIf="loading" src="https://www.drogbaster.it/loading/loading14.gif" alt="">
+    <div id="loading_bar">
+        <img *ngIf="loading" src="https://www.drogbaster.it/loading/loading14.gif" alt="">
+    </div>
+
 
 
     <div class="section">
@@ -32,11 +35,13 @@
           <img alt="" id="main_icon" src="{{ item[0].icon }}" />
         </div>
 
+<div class="weatherWeek">
         <div *ngFor="let i of item" class="forecast">
           <p id="day">{{ i.day }}</p>
           <img alt="" id="small_icon" src="{{ i.icon }}" />
           <p id="temp">{{ i.Tmin }}° / {{ i.Tmax }}°</p>
         </div>
+</div>
       </mat-card>
     </div>
   </main>
