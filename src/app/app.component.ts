@@ -1,3 +1,4 @@
+import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Component } from '@angular/core';
 import { DataService } from './data.service';
 
@@ -69,7 +70,7 @@ export class AppComponent {
               },
               error: (x: any) => {
                 reject();
-                alert('Errore nel caricamento dei dati');
+                alert('Error in uploading data');
               },
               complete: () => {
                 this.loading = false;
@@ -82,7 +83,7 @@ export class AppComponent {
         });
       },
       error: (x: any) => {
-        alert('Errore nel caricamento dei dati');
+        alert('Error in uploading data');
       },
     });
   }
