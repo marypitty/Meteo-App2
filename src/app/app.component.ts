@@ -1,5 +1,6 @@
 import { invalid } from '@angular/compiler/src/render3/view/util';
 import { Component } from '@angular/core';
+import { isEmpty } from 'rxjs';
 import { DataService } from './data.service';
 
 @Component({
@@ -32,6 +33,11 @@ export class AppComponent {
     this.loading = true;
     this.service.getData(this.input).subscribe({
       next: (x: any) => {
+        if (x.length <= 0) {
+          alert('Sorry, city not found');
+          this.loading = false;
+        }
+
         let name = x[0].title;
         this.woeid = x[0].woeid;
 
@@ -85,6 +91,7 @@ export class AppComponent {
       error: (x: any) => {
         alert('Error in uploading data');
       },
+      complete: () => {},
     });
   }
 
