@@ -5,7 +5,7 @@
             <mat-form-field class="example-full-width">
                 <input matInput placeholder="Enter city here..." name="input" [(ngModel)]="input" />
             </mat-form-field>
-            <button type="button" mat-fab (click)="getInfo()">Search</button>
+            <button type="button" mat-fab (click)="getInfo()" [disabled]="input === ''">Search</button>
         </form>
     </header>
     <div id="loading_bar">

@@ -40,6 +40,7 @@ export class AppComponent {
 
         let name = x[0].title;
         this.woeid = x[0].woeid;
+        
 
         let promiseForecast = new Promise((resolve, reject) => {
           let forecast: any = [];
